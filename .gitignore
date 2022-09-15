@@ -1,0 +1,45 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+
+# Editors and IDEs
+.vscode/*
+!.vscode/snippets
+!.vscode/launch.json
+!.vscode/settings.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Yarn integrity file
+.yarn-integrity
+
+# IntelliJ IDE
+.idea
+zwm-cjuu-pop
+
+# Build directory
+build
+dist
+
+# Dotenv configuration
+.env
+
+# Tests
+coverage
+.nyc_output
+
+# Vim swp files
+*.swp
+
+.DS_Store
