@@ -1,5 +1,5 @@
-const connection = {
-  connection_string: process.env.CONNECTION_STRING
+const database = {
+  connectionString: process.env.CONNECTION_STRING
 };
 
-export default connection;
+export default database;

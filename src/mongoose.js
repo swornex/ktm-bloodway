@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 
 import logger from './utils/logger.utils';
-import connection from './config/database.config';
+import database from './config/database.config';
 
 (async () => {
   try {
-    await mongoose.connect(connection.connection_string);
+    await mongoose.connect(database.connectionString);
     logger.info('Database connected successfully!');
   } catch (e) {
     logger.error(e);
