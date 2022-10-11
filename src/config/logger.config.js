@@ -3,4 +3,4 @@ const logger = {
   filename: 'app.log'
 };
 
-export default { logger };
+export default logger;

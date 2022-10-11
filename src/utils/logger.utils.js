@@ -1,9 +1,9 @@
 import winston from 'winston';
 
-import config from '../config/logger.config';
+import loggerConfig from '../config/logger.config';
 
-const level = config.logger.level;
-const filename = config.logger.filename;
+const level = loggerConfig.level;
+const filename = loggerConfig.filename;
 const { combine, printf } = winston.format;
 
 const transports = [
