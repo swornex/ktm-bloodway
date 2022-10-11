@@ -1,10 +1,10 @@
-import express from 'express';
-import dotenv from 'dotenv';
-dotenv.config();
-//require('dotenv').config('.env');
+import './dotenv';
+import './mongoose';
 
+import express from 'express';
+
+import router from './router';
 import logger from './middleware/logger.middleware';
-import userRouter from './router/user';
 
 const app = express();
 
@@ -16,6 +16,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 
-app.use('/users', userRouter);
+app.use(router);
 
 export default app;
