@@ -6,10 +6,11 @@
   "author": "Swornima Balay Shrestha",
   "scripts": {
     "start": "babel-node src/index.js",
-    "start:dev": "nodemon --exec babel-node src/index.js -e js,ejs"
+    "start:dev": "nodemon --exec babel-node src/index.js -e js,ejs -i public"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "bootstrap": "^5.2.2",
     "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
@@ -24,6 +25,8 @@
     "@babel/core": "^7.19.0",
     "@babel/node": "^7.18.10",
     "@babel/preset-env": "^7.19.0",
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.9.3",
     "nodemon": "^2.0.19"
   }
 }
