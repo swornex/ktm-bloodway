@@ -11,8 +11,12 @@
 
 * {
   font-family: 'Montserrat', sans-serif;
-  margin: 0;
   padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* header css  */
@@ -20,6 +24,9 @@
   width: 100%;
   color: var(--cream);
   background-color: var(--maroon);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .header-btns {
@@ -31,13 +38,16 @@
   background-color: var(--white);
   border-color: var(--white);
   color: var(--black);
-  width: 100px;
 }
 
 .header-btn-outline {
   border-color: var(--white);
   color: var(--white);
+}
+
+.header-btns a {
   width: 100px;
+  font-weight: 500;
 }
 
 .header {
@@ -53,11 +63,102 @@
 }
 
 .header-btn:hover {
-  background-color: #e0e0e0;
+  background-color: var(--white);
   color: var(--black);
-  border-color: #e0e0e0;
+  border-color: var(--white);
+}
+
+.header-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.header-links a {
+  color: var(--cream);
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-links a:hover {
+  border-bottom: 2px solid var(--cream);
+  font-size: 18px;
 }
 
 td {
   text-align: center;
+}
+
+.content {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('/img/bgimg.jpg');
+  height: 665px;
+  object-fit: cover;
+  display: flex;
+}
+
+.home-img-wrapper {
+  position: relative;
+  height: 530px;
+  width: 500px;
+}
+
+.home-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border: 5px solid var(--cream);
+  border-radius: 15px;
+  position: absolute;
+}
+
+.second-home-img {
+  top: 110px;
+  left: 200px;
+}
+
+.third-home-img {
+  top: 280px;
+  left: 50px;
+}
+
+.blood-btns {
+  display: flex;
+  gap: 15px;
+}
+
+.blood-btns a {
+  width: 200px;
+  font-weight: 500;
+  padding-block: 10px;
+}
+
+.btn-request {
+  background-color: var(--maroon);
+  border-color: var(--maroon);
+  color: var(--white);
+}
+
+.btn-donate {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.btn-donate:hover {
+  background-color: var(--maroon);
+  color: var(--white);
+  border-color: var(--maroon);
+}
+
+.btn-request:hover {
+  background-color: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+
+.footer {
+  background-color: var(--maroon);
+  color: var(--cream);
+  text-align: center;
+  padding-block: 10px;
 }
