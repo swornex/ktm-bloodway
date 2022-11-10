@@ -1,0 +1,9 @@
+.w-40 {
+  width: 40%;
+}
+
+.required::after {
+  content: '*';
+  color: var(--red);
+  margin-left: 2px;
+}

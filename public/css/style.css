@@ -63,9 +63,9 @@ a {
 }
 
 .header-btn:hover {
-  background-color: var(--white);
+  background-color: var(--cream);
   color: var(--black);
-  border-color: var(--white);
+  border-color: var(--cream);
 }
 
 .header-links {
@@ -85,9 +85,24 @@ a {
   font-size: 18px;
 }
 
+.logo {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.logo:hover {
+  color: var(--cream);
+}
+
+.logo:active {
+  color: var(--cream);
+}
+
 td {
   text-align: center;
 }
+
+/* Cover Page CSS */
 
 .content {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
@@ -120,6 +135,11 @@ td {
 .third-home-img {
   top: 280px;
   left: 50px;
+}
+
+.blood-quote {
+  font-weight: 600;
+  color: var(--cream);
 }
 
 .blood-btns {
@@ -156,6 +176,18 @@ td {
   border-color: var(--red);
 }
 
+/* Form CSS */
+.body-wrapper {
+  background-color: var(--cream);
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 50px;
+}
+/* Footer CSS */
 .footer {
   background-color: var(--maroon);
   color: var(--cream);
