@@ -1,0 +1,78 @@
+<%- include("./templates/header")%>
+<main>
+  <div class="body-wrapper">
+    <div class="container">
+      <div class="blood-info py-3">
+        <h2>Blood Info</h2>
+        <p>
+          Human blood has many functions, including preventing excessive blood
+          loss by clotting and delivering oxygen and nutrients to the lungs and
+          other tissues. There are four groups of blood: A, B, AB, and O and two
+          RH factors: positive and negative. Blood has four main components: red
+          blood cells, white blood cells, platelets, and plasma.
+        </p>
+        <div class="d-flex justify-content-center">
+          <img
+            src="/img/blood-component.png"
+            alt="blood-component"
+            width="500px"
+          />
+        </div>
+      </div>
+      <div class="blood-type py-3">
+        <h2>Compatible blood type donor</h2>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Blood Type</th>
+              <th>Donate Blood To</th>
+              <th>Receive Blood From</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <%bloodInfo.forEach((bloodInfoItem)=>{%>
+            <tr>
+              <td><%=bloodInfoItem.bloodType%></td>
+              <td><%=bloodInfoItem.donateBloodTo%></td>
+              <td><%=bloodInfoItem.receiveBloodFrom%></td>
+            </tr>
+            <%})%>
+          </tbody>
+        </table>
+      </div>
+      <div class="requirements py-3">
+        <h2>Blood Donation</h2>
+        <p>
+          Donating blood can save multiple lives. Blood donations are accepted
+          every three months. Fluids in the body can be restored to normal in as
+          little as 48 hours. You'll start to feel normal again after giving
+          blood within 24 hours, as your body will have replaced the fluids you
+          gave away. The red blood cells you lose are replaced by your body once
+          a few weeks have passed. Donating blood has many positive health
+          effects, including lowering the risk of cancer and hemochromatosis.
+          It's useful for lowering the probability of liver and pancreas damage.
+        </p>
+        <h4>Requirements of Blood Donation</h4>
+        <ul>
+          <li>Donor needs to be in good health.</li>
+          <li>Donor's weight needs to be atleast 45 kg.</li>
+          <li>Donor's age needs to be between 18 to 65 years old.</li>
+        </ul>
+      </div>
+      <div class="py-3">
+        <h2>Post Donation</h2>
+        <ol>
+          <li>Increase your fluid intake for next 24-48 hours</li>
+          <li>Avoid strenous physical exertion</li>
+          <li>Eat balanced diet for next 24 hours</li>
+          <li>Get adequate rest</li>
+        </ol>
+        <p class="warning">
+          Warning !!! Smoking and alcohol consumption is not recommended after
+          donation.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include("./templates/footer")%>
