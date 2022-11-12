@@ -98,7 +98,9 @@ a {
   color: var(--cream);
 }
 
-td {
+/* table */
+td,
+th {
   text-align: center;
 }
 
@@ -186,6 +188,12 @@ td {
   justify-content: center;
   align-items: center;
   padding-block: 50px;
+}
+
+.warning {
+  color: var(--red);
+  font-weight: 600;
+  text-align: center;
 }
 /* Footer CSS */
 .footer {
