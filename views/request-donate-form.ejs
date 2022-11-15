@@ -9,8 +9,8 @@
               <img src="img/logo.png" alt="logo" class="logo-form" />
               <p class="logo-name">KTM BlOODWAY</p>
             </div>
-            <h3><%- isRegisterForm ? "Register" : "Login"%></h3>
-            <% if (isRegisterForm) { %>
+            <h3><%- isRequestForm ? "Request" : "Donate"%></h3>
+
             <div class="col-md-6">
               <label for="fname" class="form-label required">First Name</label>
               <input
@@ -32,7 +32,6 @@
                 required
               />
             </div>
-            <%}%>
 
             <div class="col-12">
               <label for="email" class="form-label required">Email</label>
@@ -46,32 +45,6 @@
             </div>
 
             <div class="col-12">
-              <label for="password" class="form-label required">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password"
-                placeholder="password"
-                required
-              />
-            </div>
-
-            <div class="col-12">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="showPassword"
-                  required
-                />
-                <label class="form-check-label" for="showPassword">
-                  Show Password
-                </label>
-              </div>
-            </div>
-
-            <% if (isRegisterForm) { %>
-            <div class="col-12">
               <label for="contact" class="form-label required">Contact</label>
               <input
                 type="text"
@@ -82,6 +55,7 @@
               />
             </div>
 
+            <% if (!isRequestForm) { %>
             <div class="col-12">
               <label for="address" class="form-label required">Address</label>
               <input
@@ -89,6 +63,17 @@
                 class="form-control"
                 id="address"
                 placeholder="Putalisadak"
+                required
+              />
+            </div>
+
+            <div class="col-12">
+              <label for="age" class="form-label required">Age</label>
+              <input
+                type="text"
+                class="form-control"
+                id="age"
+                placeholder="18"
                 required
               />
             </div>
@@ -135,6 +120,7 @@
                 </div>
               </div>
             </div>
+            <%}%>
 
             <div class="col-12">
               <label for="blood-group" class="form-label required">
@@ -153,6 +139,18 @@
               </select>
             </div>
 
+            <% if (isRequestForm) { %>
+            <div class="col-12">
+              <label for="note" class="form-label required">Note</label>
+              <textarea
+                class="form-control"
+                id="note"
+                rows="3"
+                placeholder="Any description you want to add..."
+                required
+              ></textarea>
+            </div>
+            <%}%> <% if (!isRequestForm) { %>
             <div class="col-12">
               <div class="form-check">
                 <input
@@ -162,7 +160,7 @@
                   required
                 />
                 <label class="form-check-label" for="agree">
-                  I hereby agree to the terms and conditions.
+                  I hereby agree to the terms and conditions of blood donation.
                 </label>
               </div>
             </div>
@@ -170,18 +168,13 @@
 
             <div class="col-12">
               <button type="submit" class="btn btn-primary">
-                <%- isRegisterForm ? "Register" : "Login"%>
+                <%- isRequestForm ? "Request" : "Donate"%>
               </button>
             </div>
-            <% if (!isRegisterForm) { %>
-            <hr />
-            <div>New here? <a href="/register">Register Now!</a></div>
-            <%}%>
           </form>
         </div>
       </div>
     </div>
   </div>
 </main>
-<script src="/js/showPassword.js"></script>
 <%-include("./templates/footer")%>

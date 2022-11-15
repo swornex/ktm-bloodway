@@ -1,0 +1,25 @@
+<%- include("./templates/header")%>
+<main>
+  <div class="body-wrapper">
+    <div class="container">
+      <h2 class="text-center py-4 blood-bank">
+        Blood banks in Kathmandu valley.
+      </h2>
+      <div class="row justify-content-center">
+        <%bloodBanks.forEach((bloodBank)=>{%>
+        <div class="col-lg-4 col-sm-6">
+          <div class="shadow-sm p-3 mb-5 bg-light rounded text-center">
+            <p class="p-2">
+              <span class="bank-name"><%=bloodBank.name%></span><br />
+              <span><%=bloodBank.location%></span>
+              <br />
+              <span><%=bloodBank.contact%></span>
+            </p>
+          </div>
+        </div>
+        <%})%>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include("./templates/footer")%>

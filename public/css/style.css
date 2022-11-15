@@ -195,6 +195,27 @@ th {
   font-weight: 600;
   text-align: center;
 }
+
+.logo-form {
+  width: 100px;
+}
+
+.logo-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--red);
+}
+
+/* Blood bank */
+.blood-bank {
+  color: var(--red);
+}
+.bank-name {
+  color: var(--red);
+  font-size: 18px;
+  font-weight: 500;
+}
+
 /* Footer CSS */
 .footer {
   background-color: var(--maroon);
