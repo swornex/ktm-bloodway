@@ -1,0 +1,106 @@
+{
+  "blood-bank": [
+    {
+      "name": "Bhaktapur NRCS Blood Bank",
+      "location": "Bhaktapur",
+      "contact": "01-6611661",
+      "id": 1
+    },
+    {
+      "name": "Central NRCS Blood Bank",
+      "location": "Soaltee-Mode",
+      "contact": "01-4288485",
+      "id": 2
+    },
+    {
+      "name": "Lalitpur NRCS Blood Bank",
+      "location": "Pulchowk",
+      "contact": "+97715427033",
+      "id": 3
+    },
+    {
+      "name": "Frontline Hospital Blood Bank",
+      "location": "Old Baneshwor",
+      "contact": "01-5970132",
+      "id": 4
+    },
+    {
+      "name": "Teaching Hospital",
+      "location": "Maharajgunj",
+      "contact": "01-44123030",
+      "id": 5
+    },
+    {
+      "name": "Gangalal Hospital",
+      "location": "Bansbari",
+      "contact": "01-4371322",
+      "id": 6
+    },
+    {
+      "name": "Himal Hospital",
+      "location": "Gyaneshwor",
+      "contact": "986-2737316",
+      "id": 7
+    },
+    {
+      "name": "Grande Hospital",
+      "location": "Dhapasi",
+      "contact": "01-5159266",
+      "id": 8
+    },
+    {
+      "name": "Prasuti Griha",
+      "location": "Thapathali",
+      "contact": "01-4260405",
+      "id": 9
+    },
+    {
+      "name": "Nepal Mediciti Hospital",
+      "location": "Nakhkhu Ukalo",
+      "contact": "01-4217766",
+      "id": 10
+    },
+    {
+      "name": "Bir Hospital",
+      "location": "New road gate",
+      "contact": "01-4221119",
+      "id": 11
+    },
+    {
+      "name": "Nepal Police Hospital",
+      "location": "Maharajgunj",
+      "contact": "01-4412430",
+      "id": 12
+    },
+    {
+      "name": "Civil Hospital",
+      "location": "Minbhawan",
+      "contact": "01-4107000",
+      "id": 13
+    },
+    {
+      "name": "Patan Hospital",
+      "location": "Patan",
+      "contact": "01-5522295",
+      "id": 14
+    },
+    {
+      "name": "Birendra Army Hospital",
+      "location": "Kathmandu",
+      "contact": "01-4271941",
+      "id": 15
+    },
+    {
+      "name": "Nepal Medical College",
+      "location": "Gokarneswor",
+      "contact": "01-4911008",
+      "id": 16
+    },
+    {
+      "name": "KMC Hospital",
+      "location": "Sinamangal",
+      "contact": "01-4469064",
+      "id": 17
+    }
+  ]
+}
