@@ -1,8 +1,25 @@
-import express from 'express';
+import fetch from 'node-fetch';
 
-const router = express.Router();
+export const home = (req, resp) => {
+  resp.render('index');
+};
 
-router.get('/', (req, resp) => {
+export const login = (req, resp) => {
+  resp.render('login-register-form', { isRegisterForm: false });
+};
+
+export const register = (req, resp) => {
+  resp.render('login-register-form', { isRegisterForm: true });
+};
+
+export const bloodBank = async (req, resp) => {
+  const response = await fetch('http://localhost:3000/api/blood-bank');
+  const bloodBanks = await response.json();
+
+  resp.render('blood-bank', { bloodBanks });
+};
+
+export const bloodInfo = (req, resp) => {
   resp.render('blood-info', {
     bloodInfo: [
       {
@@ -47,6 +64,12 @@ router.get('/', (req, resp) => {
       }
     ]
   });
-});
+};
 
-export default router;
+export const donate = (req, resp) => {
+  resp.render('request-donate-form', { isRequestForm: false });
+};
+
+export const request = (req, resp) => {
+  resp.render('request-donate-form', { isRequestForm: true });
+};

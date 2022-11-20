@@ -1,9 +1,35 @@
-import express from 'express';
+import { Router } from 'express';
 
-const app = express();
+import {
+  userRegisterSchema,
+  userUpdateSchema
+} from '../../schema/user.schema.js';
+import loginSchema from '../../schema/login.schema.js';
 
-app.get('/', (req, resp) => {
-  resp.send('HI! This is API.');
-});
+import authenticate from '../../middleware/authenticate.middleware.js';
+import validateSchema from '../../middleware/validateSchema.middleware.js';
 
-export default app;
+import * as userController from '../../controller/api/user.api.controller.js';
+
+const router = Router();
+
+router.post(
+  '/register',
+  validateSchema(userRegisterSchema),
+  userController.register
+);
+
+router.post('/login', validateSchema(loginSchema), userController.login);
+
+router.get('/', authenticate, userController.getUsers);
+
+router.get('/:id', authenticate, userController.getUser);
+
+router.put(
+  '/:id',
+  authenticate,
+  validateSchema(userUpdateSchema),
+  userController.updateUser
+);
+
+export default router;
