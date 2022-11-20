@@ -5,8 +5,8 @@ import bloodBankRouter from './blood-bank.api';
 
 const router = Router();
 
-router.use(bloodBankRouter);
-
 router.use('/users', userRouter);
+
+router.use(bloodBankRouter);
 
 export default router;
