@@ -1,4 +1,10 @@
-<%-include("./templates/header")%>
+<%if(user) {%>
+
+<script>
+  window.location.href = '/';
+</script>
+
+<%}%> <%-include("./templates/header")%>
 <main>
   <div class="body-wrapper">
     <div class="container">
@@ -21,6 +27,7 @@
                 placeholder="Joe"
                 required
               />
+              <div class="fname-error error mt-1"></div>
             </div>
 
             <div class="col-md-6">
@@ -28,11 +35,12 @@
               <input
                 type="text"
                 class="form-control"
-                id="lastName"
-                name="lname"
+                id="lname"
+                name="lastName"
                 placeholder="Biden"
                 required
               />
+              <div class="lname-error error mt-1"></div>
             </div>
             <%}%>
 
@@ -46,6 +54,7 @@
                 placeholder="joe@example.com"
                 required
               />
+              <div class="email-error error mt-1"></div>
             </div>
 
             <div class="col-12">
@@ -58,6 +67,7 @@
                 placeholder="password"
                 required
               />
+              <div class="password-error error mt-1"></div>
             </div>
 
             <div class="col-12">
@@ -84,6 +94,7 @@
                 placeholder="9841000000"
                 required
               />
+              <div class="contact-error error mt-1"></div>
             </div>
 
             <div class="col-12">
@@ -96,6 +107,7 @@
                 placeholder="Putalisadak"
                 required
               />
+              <div class="address-error error mt-1"></div>
             </div>
 
             <div>
@@ -139,6 +151,7 @@
                   <label class="form-check-label" for="other"> Other </label>
                 </div>
               </div>
+              <div class="gender-error error mt-1"></div>
             </div>
 
             <div class="col-12">
@@ -161,27 +174,15 @@
                 <option value="O+">O+</option>
                 <option value="O-">O-</option>
               </select>
+              <div class="blood-group-error error mt-1"></div>
             </div>
 
-            <div class="col-12">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="agree"
-                  required
-                />
-                <label class="form-check-label" for="agree">
-                  I hereby agree to the terms and conditions.
-                </label>
-              </div>
-            </div>
             <%}%>
 
             <div class="col-12">
               <button
                 type="submit"
-                id="submit"
+                id="<%- isRegisterForm ? 'register' : 'login'%>"
                 class="btn btn-primary"
                 name="<%- isRegisterForm ? 'register' : 'login'%>"
               >

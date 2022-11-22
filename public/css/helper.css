@@ -7,3 +7,8 @@
   color: var(--red);
   margin-left: 2px;
 }
+
+.error {
+  color: var(--red);
+  font-size: 14px;
+}

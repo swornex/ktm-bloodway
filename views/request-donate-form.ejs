@@ -18,8 +18,10 @@
                 class="form-control"
                 id="fname"
                 placeholder="Joe"
+                value="<%- user.firstName %>"
                 required
               />
+              <div class="fname-error error mt-1"></div>
             </div>
 
             <div class="col-md-6">
@@ -29,8 +31,10 @@
                 class="form-control"
                 id="lname"
                 placeholder="Biden"
+                value="<%- user.lastName %>"
                 required
               />
+              <div class="lname-error error mt-1"></div>
             </div>
 
             <div class="col-12">
@@ -40,8 +44,10 @@
                 class="form-control"
                 id="email"
                 placeholder="joe@example.com"
+                value="<%- user.email %>"
                 required
               />
+              <div class="email-error error mt-1"></div>
             </div>
 
             <div class="col-12">
@@ -51,8 +57,10 @@
                 class="form-control"
                 id="contact"
                 placeholder="9841000000"
+                value="<%- user.contact %>"
                 required
               />
+              <div class="contact-error error mt-1"></div>
             </div>
 
             <% if (!isRequestForm) { %>
@@ -63,8 +71,10 @@
                 class="form-control"
                 id="address"
                 placeholder="Putalisadak"
+                value="<%- user.address %>"
                 required
               />
+              <div class="address-error error mt-1"></div>
             </div>
 
             <div class="col-12">
@@ -76,6 +86,7 @@
                 placeholder="18"
                 required
               />
+              <div class="age-error error mt-1"></div>
             </div>
 
             <div>
@@ -119,6 +130,7 @@
                   <label class="form-check-label" for="other"> Other </label>
                 </div>
               </div>
+              <div class="gender-error error mt-1"></div>
             </div>
             <%}%>
 
@@ -137,6 +149,7 @@
                 <option value="O+">O+</option>
                 <option value="O-">O-</option>
               </select>
+              <div class="blood-group-error error mt-1"></div>
             </div>
 
             <% if (isRequestForm) { %>
@@ -146,28 +159,19 @@
                 class="form-control"
                 id="note"
                 rows="3"
-                placeholder="Any description you want to add..."
+                placeholder="How much blood you need?..."
                 required
               ></textarea>
-            </div>
-            <%}%> <% if (!isRequestForm) { %>
-            <div class="col-12">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="agree"
-                  required
-                />
-                <label class="form-check-label" for="agree">
-                  I hereby agree to the terms and conditions of blood donation.
-                </label>
-              </div>
+              <div class="notes-error error mt-1"></div>
             </div>
             <%}%>
 
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">
+              <button
+                type="submit"
+                id="<%- isRequestForm ? 'request' : 'donate'%>"
+                class="btn btn-primary"
+              >
                 <%- isRequestForm ? "Request" : "Donate"%>
               </button>
             </div>
@@ -177,4 +181,6 @@
     </div>
   </div>
 </main>
+<script src="/js/request-donate.js"></script>
+
 <%-include("./templates/footer")%>
