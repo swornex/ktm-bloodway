@@ -8,12 +8,17 @@ import logger from '../utils/logger.utils.js';
 
 const authenticate = async (req, res, next) => {
   try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
+    const token = req.cookies?.access_token;
+
+    if (!token) {
+      return res.redirect('/login');
+    }
+
     const decoded = jwt.verify(token, jwtConfig.jwtSecret);
     const user = await User.findById(decoded.id);
 
     if (!user) {
-      throw new Error();
+      return res.redirect('/login');
     }
 
     req.user = {

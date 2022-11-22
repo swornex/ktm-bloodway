@@ -3,8 +3,8 @@ import { StatusCodes as HttpStatus } from 'http-status-codes';
 
 import User from '../../model/user.model.js';
 import logger from '../../utils/logger.utils.js';
-import { handleError } from '../../utils/error.utils.js';
 import generateToken from '../../utils/token.utils.js';
+import { handleError } from '../../utils/error.utils.js';
 
 export const register = async (req, res) => {
   try {

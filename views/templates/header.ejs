@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="/css/helper.css">
     <link rel="icon" type="image/x-icon" href="/img/logo.png">
     <title>KTM Bloodway</title>
+    <script src="/js/cookie.js"></script>
+    <script src="/js/utils.js"></script>
 </head>
 <body>
     <header class="header-wrapper">
@@ -21,8 +23,14 @@
                 <a href="/">What we do</a>
             </div>
             <div class="header-btns">
+                <%if(!user){%>
                 <a href="/login" class="btn header-btn">Login</a>
                 <a href="/register" class="btn btn-outline header-btn-outline">Register</a>
+                <%}else{%>
+                <div class="d-flex align-items-center"><%=user.firstName%></div>
+                <button id="logout" class="btn header-btn">Logout</button>
+                <%}%>
             </div>
         </div>
+        <script src="/js/header.js"></script>
     </header>

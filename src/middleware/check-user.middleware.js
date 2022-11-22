@@ -6,17 +6,25 @@ import jwtConfig from '../config/jwt.config';
 import { handleError } from '../utils/error.utils.js';
 import logger from '../utils/logger.utils.js';
 
-const authenticate = async (req, res, next) => {
+const checkUser = async (req, res, next) => {
+  res.locals.users = 'hi';
   try {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
+    const token = req.cookies?.access_token;
+
+    if (!token) {
+      res.locals.user = null;
+      return next();
+    }
+
     const decoded = jwt.verify(token, jwtConfig.jwtSecret);
     const user = await User.findById(decoded.id);
 
     if (!user) {
-      throw new Error();
+      res.locals.user = null;
+      return next();
     }
 
-    req.user = {
+    res.locals.user = {
       _id: user._id,
       firstName: user.firstName,
       lastName: user.lastName,
@@ -33,4 +41,4 @@ const authenticate = async (req, res, next) => {
   }
 };
 
-export default authenticate;
+export default checkUser;

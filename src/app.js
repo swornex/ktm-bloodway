@@ -4,10 +4,12 @@ import './mongoose';
 import path from 'path';
 import express from 'express';
 import livereload from 'livereload';
+import cookieParser from 'cookie-parser';
 import connectLiveReload from 'connect-livereload';
 
 import router from './router';
 import logger from './middleware/logger.middleware';
+import checkUser from './middleware/check-user.middleware';
 
 //Livereload server code
 const liveReloadServer = livereload.createServer();
@@ -29,10 +31,12 @@ app.use(connectLiveReload());
 app.use(express.json());
 //this will automatically parse(convert) incoming form-encoded to an object
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(
   express.static(path.join(__dirname, '../node_modules/bootstrap/dist/css'))
 );
 app.use(express.static('public'));
+app.use(checkUser);
 app.use(logger);
 
 app.use(router);
