@@ -17,7 +17,11 @@ router.post(
   bloodController.bloodRequest
 );
 
-router.get('/request', authenticate, bloodController.getBloodRequests);
+router.get('/request', bloodController.getBloodRequests);
+
+router.get('/request/:id', authenticate, bloodController.fetchOneRequest);
+
+router.put('/request/:id', authenticate, bloodController.updateRequest);
 
 router.post(
   '/donate',

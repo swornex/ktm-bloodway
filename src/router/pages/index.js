@@ -10,7 +10,9 @@ import {
   request,
   register,
   bloodInfo,
-  bloodBank
+  bloodBank,
+  bloodDonate,
+  bloodRequest
 } from '../../controller/pages';
 
 const router = Router();
@@ -22,5 +24,9 @@ router.get('/request', authenticate, request);
 router.get('/register', register);
 router.get('/blood-info', bloodInfo);
 router.get('/blood-bank', bloodBank);
+router.get('/blood-request', bloodRequest);
+router.get('/blood-donate', authenticate, bloodDonate);
+router.get('/request/:id', authenticate, request);
+router.get('/donate/:id', authenticate, donate);
 
 export default router;

@@ -1,0 +1,93 @@
+<%- include("./templates/header")%>
+<main>
+  <div class="body-wrapper">
+    <div class="container">
+      <h2 class="text-center py-4 blood-bank">
+        <%-isRequestPage ? "Blood Requests" : "Blood Donors" %>
+      </h2>
+      <!-- table request -->
+      <%if(isRequestPage){%>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <%if(user){%>
+            <th>Email</th>
+            <th>Contact</th>
+            <%}%>
+            <th>Blood Group</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <%bloodRequests.forEach((bloodRequest)=>{%>
+          <tr>
+            <td><%=bloodRequest.firstName + " " + bloodRequest.lastName%></td>
+            <%if(user){%>
+            <td><%=bloodRequest.email%></td>
+            <td><%=bloodRequest.contact%></td>
+            <%}%>
+            <td><%=bloodRequest.bloodGroup%></td>
+            <div>
+              <%if(user && bloodRequest.userId== user._id){%>
+              <td>
+                <a href="/request/<%-bloodRequest._id%>" class="btn header-btn"
+                  >Edit</a
+                >
+              </td>
+              <%}%> <%if(bloodRequest.userId != user._id){%>
+              <td>
+                <a <%if(!user){%>
+                  href="/login" <%}else{%> href= "/donate/<%-bloodRequest._id%>"
+                  <%}%> class="btn header-btn" >Donate</a
+                >
+              </td>
+              <%}%>
+            </div>
+          </tr>
+          <%})%> <%if(bloodRequests.length == 0){%>
+          <tr>
+            <td colspan="5" class="text-center">No Blood Requests</td>
+          </tr>
+          <%}%>
+        </tbody>
+      </table>
+      <%}%>
+
+      <!-- table donate -->
+      <%if(!isRequestPage){%>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Blood Group</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <%bloodDonors.forEach((bloodDonor)=>{%>
+          <tr>
+            <td><%=bloodDonor.firstName + " " + bloodDonor.lastName%></td>
+            <td><%=bloodDonor.email%></td>
+            <td><%=bloodDonor.contact%></td>
+            <td><%=bloodDonor.address%></td>
+            <td><%=bloodDonor.age%></td>
+            <td><%=bloodDonor.gender%></td>
+            <td><%=bloodDonor.bloodGroup%></td>
+          </tr>
+          <%})%> <%if(bloodDonors.length == 0){%>
+          <tr>
+            <td colspan="7" class="text-center">No Donors Found</td>
+          </tr>
+          <%}%>
+        </tbody>
+      </table>
+      <%}%>
+    </div>
+  </div>
+</main>
+<%- include("./templates/footer")%>

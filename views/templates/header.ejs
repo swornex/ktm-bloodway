@@ -20,7 +20,10 @@
             <div class="header-links">
                 <a href="/blood-info">Blood info</a>
                 <a href="/blood-bank">Blood banks</a>
-                <a href="/">What we do</a>
+                <a href="/blood-request">Blood Requests</a>
+                <%if(user){%>
+                    <a href="/blood-donate">Blood Donors</a>
+                <%}%>
             </div>
             <div class="header-btns">
                 <%if(!user){%>

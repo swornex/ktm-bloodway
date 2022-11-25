@@ -31,6 +31,7 @@ const checkUser = async (req, res, next) => {
       email: user.email,
       contact: user.contact,
       address: user.address,
+      gender: user.gender,
       bloodGroup: user.bloodGroup
     };
 

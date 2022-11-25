@@ -11,8 +11,7 @@ const donateSchema = new mongoose.Schema({
     type: String
   },
   email: {
-    type: String,
-    unique: true
+    type: String
   },
   contact: {
     type: Number
