@@ -1,9 +1,11 @@
 import { StatusCodes as HttpStatus } from 'http-status-codes';
 
+import User from '../../models/user.model';
 import logger from '../../utils/logger.utils.js';
 import DonateBlood from '../../model/donate.model.js';
 import RequestBlood from '../../model/request.model.js';
 import { handleError } from '../../utils/error.utils.js';
+import { sendRequestMail } from '../../utils/email.utils.js';
 
 export const bloodRequest = async (req, res) => {
   try {
@@ -20,6 +22,12 @@ export const bloodRequest = async (req, res) => {
     });
 
     await requestBlood.save();
+
+    const users = await User.find({ bloodGroup });
+
+    users.forEach((user) => {
+      sendRequestMail(user.email, user.firstName, firstName);
+    });
 
     res.status(HttpStatus.OK).json({
       message: 'Blood Requested successfully',
