@@ -14,7 +14,8 @@ const donateBloodSchema = Joi.object({
     .valid(...GENDERS),
   bloodGroup: Joi.string()
     .required()
-    .valid(...BLOOD_GROUPS)
+    .valid(...BLOOD_GROUPS),
+  requestId: Joi.string().required().trim().optional()
 });
 
 export default donateBloodSchema;

@@ -17,7 +17,6 @@
             <%}%>
             <th>Blood Group</th>
             <th>Action</th>
-            <th></th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -36,16 +35,21 @@
                   >Edit</a
                 >
               </td>
-              <%}%>
+              <%}%> <%if(bloodRequest.userId != user._id){%>
               <td>
                 <a <%if(!user){%>
                   href="/login" <%}else{%> href= "/donate/<%-bloodRequest._id%>"
                   <%}%> class="btn header-btn" >Donate</a
                 >
               </td>
+              <%}%>
             </div>
           </tr>
-          <%})%>
+          <%})%> <%if(bloodRequests.length == 0){%>
+          <tr>
+            <td colspan="5" class="text-center">No Blood Requests</td>
+          </tr>
+          <%}%>
         </tbody>
       </table>
       <%}%>
@@ -62,24 +66,24 @@
             <th>Age</th>
             <th>Gender</th>
             <th>Blood Group</th>
-            <th>Action</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
           <%bloodDonors.forEach((bloodDonor)=>{%>
           <tr>
-            <td><%=bloodDonor.firstName + " " + bloodDonor.LastName%></td>
+            <td><%=bloodDonor.firstName + " " + bloodDonor.lastName%></td>
             <td><%=bloodDonor.email%></td>
             <td><%=bloodDonor.contact%></td>
             <td><%=bloodDonor.address%></td>
             <td><%=bloodDonor.age%></td>
             <td><%=bloodDonor.gender%></td>
             <td><%=bloodDonor.bloodGroup%></td>
-            <div>
-              <td class="btn btn-outline header-btn-outline">Edit</td>
-            </div>
           </tr>
-          <%})%>
+          <%})%> <%if(bloodDonors.length == 0){%>
+          <tr>
+            <td colspan="7" class="text-center">No Donors Found</td>
+          </tr>
+          <%}%>
         </tbody>
       </table>
       <%}%>
