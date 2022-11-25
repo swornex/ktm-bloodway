@@ -25,6 +25,7 @@ donateButton?.addEventListener('click', async (e) => {
   genderError.innerHTML = '';
   bloodGroupError.innerHTML = '';
 
+  const requestId = document?.getElementById('hidden-id').value;
   const firstName = document.getElementById('fname').value;
   const lastName = document.getElementById('lname').value;
   const email = document.getElementById('email').value;
@@ -50,7 +51,8 @@ donateButton?.addEventListener('click', async (e) => {
       address,
       age,
       gender: getGender(male, female, other),
-      bloodGroup
+      bloodGroup,
+      ...(requestId && { requestId })
     })
   });
 

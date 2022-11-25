@@ -24,7 +24,7 @@ const requestSchema = new mongoose.Schema({
   },
   donors: [
     {
-      donor: {
+      donationId: {
         type: mongoose.Schema.Types.ObjectId
       }
     }

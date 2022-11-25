@@ -60,7 +60,8 @@ export const bloodDonate = async (req, res) => {
       address,
       age,
       gender,
-      bloodGroup
+      bloodGroup,
+      requestId
     } = req.body;
 
     const donateBlood = new DonateBlood({
@@ -75,7 +76,23 @@ export const bloodDonate = async (req, res) => {
       bloodGroup
     });
 
-    await donateBlood.save();
+    const savePromises = [donateBlood.save()];
+
+    if (requestId) {
+      const requestBlood = await RequestBlood.findById(requestId);
+
+      if (!requestBlood) {
+        return res.status(HttpStatus.NOT_FOUND).json({
+          message: 'No request Blood found'
+        });
+      }
+
+      requestBlood.donors.push({ donationId: donateBlood._id });
+
+      savePromises.push(requestBlood.save());
+    }
+
+    await Promise.all(savePromises);
 
     res.status(HttpStatus.OK).json({
       message: 'Blood Donated successfully',

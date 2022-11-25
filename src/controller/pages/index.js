@@ -70,7 +70,6 @@ export const donate = async (req, resp) => {
   const { id } = req.params;
   let bloodRequest;
 
-  console.log(id);
   if (id) {
     const response = await fetch(
       `http://localhost:3000/api/blood/request/${id}`,
