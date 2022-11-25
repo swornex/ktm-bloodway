@@ -11,8 +11,7 @@ const requestSchema = new mongoose.Schema({
     type: String
   },
   email: {
-    type: String,
-    unique: true
+    type: String
   },
   contact: {
     type: Number
@@ -22,7 +21,14 @@ const requestSchema = new mongoose.Schema({
   },
   note: {
     type: String
-  }
+  },
+  donors: [
+    {
+      donor: {
+        type: mongoose.Schema.Types.ObjectId
+      }
+    }
+  ]
 });
 
 const RequestBlood = mongoose.model('Request', requestSchema);

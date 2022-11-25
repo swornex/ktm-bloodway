@@ -6,7 +6,7 @@
         <div class="form-wrapper w-40">
           <form class="row g-3">
             <div class="d-flex flex-column align-items-center">
-              <img src="img/logo.png" alt="logo" class="logo-form" />
+              <img src="/img/logo.png" alt="logo" class="logo-form" />
               <p class="logo-name">KTM BlOODWAY</p>
             </div>
             <h3><%- isRequestForm ? "Request" : "Donate"%></h3>
@@ -18,7 +18,7 @@
                 class="form-control"
                 id="fname"
                 placeholder="Joe"
-                value="<%- user.firstName %>"
+                value="<%- bloodRequest?.firstName || user.firstName %>"
                 required
               />
               <div class="fname-error error mt-1"></div>
@@ -36,6 +36,12 @@
               />
               <div class="lname-error error mt-1"></div>
             </div>
+
+            <input
+              type="hidden"
+              id="hidden-id"
+              value="<%- bloodRequest?._id || '' %>"
+            />
 
             <div class="col-12">
               <label for="email" class="form-label required">Email</label>

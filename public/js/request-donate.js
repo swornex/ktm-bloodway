@@ -1,6 +1,8 @@
 const donateButton = document.getElementById('donate');
 const requestButton = document.getElementById('request');
 
+// donate part
+
 donateButton?.addEventListener('click', async (e) => {
   e.preventDefault();
 
@@ -64,13 +66,14 @@ donateButton?.addEventListener('click', async (e) => {
     genderError.innerText = getErrorMessage(data.error, 'gender');
     bloodGroupError.innerText = getErrorMessage(data.error, 'bloodGroup');
   } else {
-    location.assign('/');
+    location.assign('/blood-donate');
   }
 });
 
+// request part
+
 requestButton?.addEventListener('click', async (e) => {
   e.preventDefault();
-  console.log('request');
 
   const firstNameError = document.getElementsByClassName('fname-error')[0];
   const lastNameError = document.getElementsByClassName('lname-error')[0];
@@ -87,6 +90,7 @@ requestButton?.addEventListener('click', async (e) => {
   bloodGroupError.innerHTML = '';
   notesError.innerHTML = '';
 
+  const requestId = document?.getElementById('hidden-id').value;
   const firstName = document.getElementById('fname').value;
   const lastName = document.getElementById('lname').value;
   const email = document.getElementById('email').value;
@@ -94,21 +98,24 @@ requestButton?.addEventListener('click', async (e) => {
   const bloodGroup = document.getElementById('blood-group').value;
   const note = document.getElementById('note').value;
 
-  const response = await fetch('/api/blood/request', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${getCookie('access_token')}`
-    },
-    body: JSON.stringify({
-      email,
-      firstName,
-      lastName,
-      contact,
-      bloodGroup,
-      note
-    })
-  });
+  const response = await fetch(
+    requestId ? `/api/blood/request/${requestId}` : '/api/blood/request',
+    {
+      method: requestId ? 'PUT' : 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${getCookie('access_token')}`
+      },
+      body: JSON.stringify({
+        email,
+        firstName,
+        lastName,
+        contact,
+        bloodGroup,
+        note
+      })
+    }
+  );
 
   const data = await response.json();
 
@@ -120,6 +127,6 @@ requestButton?.addEventListener('click', async (e) => {
     bloodGroupError.innerText = getErrorMessage(data.error, 'bloodGroup');
     notesError.innerText = getErrorMessage(data.error, 'note');
   } else {
-    location.assign('/');
+    location.assign('/blood-request');
   }
 });

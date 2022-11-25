@@ -79,7 +79,7 @@ export const getUsers = async (req, res) => {
     const users = await User.find();
 
     if (!users.length) {
-      return res.status(HttpStatus.NO_CONTENT).json({
+      return res.status(HttpStatus.NOT_FOUND).json({
         message: 'No users found'
       });
     }
