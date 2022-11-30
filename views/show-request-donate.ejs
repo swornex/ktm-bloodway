@@ -29,17 +29,18 @@
             <%}%>
             <td><%=bloodRequest.bloodGroup%></td>
             <div>
-              <%if(user && bloodRequest.userId== user._id){%>
+              <%if(user && bloodRequest.userId== user?._id){%>
               <td>
-                <a href="/request/<%-bloodRequest._id%>" class="btn header-btn"
+                <a href="/request/<%-bloodRequest?._id%>" class="btn header-btn"
                   >Edit</a
                 >
               </td>
-              <%}%> <%if(bloodRequest.userId != user._id){%>
+              <%}%> <%if(bloodRequest.userId != user?._id){%>
               <td>
                 <a <%if(!user){%>
-                  href="/login" <%}else{%> href= "/donate/<%-bloodRequest._id%>"
-                  <%}%> class="btn header-btn" >Donate</a
+                  href="/login" <%}else{%> href=
+                  "/donate/<%-bloodRequest?._id%>" <%}%> class="btn header-btn"
+                  >Donate</a
                 >
               </td>
               <%}%>

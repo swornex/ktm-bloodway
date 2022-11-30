@@ -12,7 +12,7 @@ const checkUser = async (req, res, next) => {
     const token = req.cookies?.access_token;
 
     if (!token) {
-      res.locals.user = null;
+      res.locals.user = undefined;
       return next();
     }
 
@@ -20,7 +20,7 @@ const checkUser = async (req, res, next) => {
     const user = await User.findById(decoded.id);
 
     if (!user) {
-      res.locals.user = null;
+      res.locals.user = undefined;
       return next();
     }
 
