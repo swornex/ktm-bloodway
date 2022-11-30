@@ -110,7 +110,8 @@ export const bloodRequest = async (req, resp) => {
 
   resp.render('show-request-donate', {
     isRequestPage: true,
-    bloodRequests: bloodRequests?.requestBlood || []
+    bloodRequests: bloodRequests?.requestBlood || [],
+    message: req.flash('success')
   });
 };
 
@@ -123,6 +124,7 @@ export const bloodDonate = async (req, resp) => {
   const bloodDonors = await response?.json();
   resp.render('show-request-donate', {
     isRequestPage: false,
-    bloodDonors: bloodDonors?.donateBlood || []
+    bloodDonors: bloodDonors?.donateBlood || [],
+    message: req.flash('success')
   });
 };

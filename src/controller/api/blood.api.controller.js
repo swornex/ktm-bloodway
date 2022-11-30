@@ -35,6 +35,7 @@ export const bloodRequest = async (req, res) => {
       );
     });
 
+    req.flash('success', 'Request for blood has been sent successfully');
     res.status(HttpStatus.OK).json({
       message: 'Blood Requested successfully',
       requestBlood

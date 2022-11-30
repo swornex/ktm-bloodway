@@ -1,4 +1,14 @@
-<%- include("./templates/header")%>
+<%- include("./templates/header")%> <%if(message?.length){%>
+<div class="alert alert-success alert-dismissible fade show m-0">
+  <%=message%>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<%}%>
 <main>
   <div class="body-wrapper">
     <div class="container">
