@@ -1,6 +1,6 @@
 import { StatusCodes as HttpStatus } from 'http-status-codes';
 
-import User from '../../models/user.model';
+import User from '../../model/user.model';
 import logger from '../../utils/logger.utils.js';
 import DonateBlood from '../../model/donate.model.js';
 import RequestBlood from '../../model/request.model.js';
@@ -26,7 +26,13 @@ export const bloodRequest = async (req, res) => {
     const users = await User.find({ bloodGroup });
 
     users.forEach((user) => {
-      sendRequestMail(user.email, user.firstName, firstName);
+      sendRequestMail(
+        user.email,
+        user.firstName,
+        firstName,
+        bloodGroup,
+        req.user.gender
+      );
     });
 
     res.status(HttpStatus.OK).json({
